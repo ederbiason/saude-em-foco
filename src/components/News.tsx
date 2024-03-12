@@ -6,26 +6,39 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Button } from "./ui/button"
 import { MoveRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 import moment from 'moment';
 
-const data = {
-    author: "O Tempo",
-    title: "Saiba quais são os testes existentes para dengue e quando podem ser aplicados - O Tempo",
-    description: null,
-    url: "https://news.google.com/rss/articles/CBMieGh0dHBzOi8vd3d3Lm90ZW1wby5jb20uYnIvYnJhc2lsL3NhaWJhLXF1YWlzLXNhby1vcy10ZXN0ZXMtZXhpc3RlbnRlcy1wYXJhLWRlbmd1ZS1lLXF1YW5kby1wb2RlbS1zZXItYXBsaWNhZG9zLTEuMzM0NjM4OdIBf2h0dHBzOi8vd3d3Lm90ZW1wby5jb20uYnIvbW9iaWxlL2JyYXNpbC9zYWliYS1xdWFpcy1zYW8tb3MtdGVzdGVzLWV4aXN0ZW50ZXMtcGFyYS1kZW5ndWUtZS1xdWFuZG8tcG9kZW0tc2VyLWFwbGljYWRvcy0xLjMzNDYzODk?oc=5",
-    urlToImage: null,
-    publishedAt: "2024-03-11T15:04:42Z",
-    content: null
+interface NewProps {
+    source: { id: string, name: string }
+    author: string
+    title: string
+    description: any
+    url: string
+    urlToImage: any
+    publishedAt: string
+    content: any
 }
 
 import newsImage from "@/assets/saude.png"
+import axios from "axios"
 
-export function News() {
+async function getNews() {
+    const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=br&category=health&apiKey=${process.env.NEWS_API_KEY}`)
+
+    if (res.status != 200) {
+        throw new Error('Failed to fetch data')
+    }
+
+    return res.data
+}
+
+export async function News() {
+    const { articles } = await getNews()
+    console.log(articles)
     return (
         <section className="w-full py-10">
             <div className="mx-auto lg:max-w-6xl px-3">
@@ -34,35 +47,36 @@ export function News() {
                         Fique por dentro das últimas notícias
                     </h1>
                     <CarouselContent>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                        {articles.map((article: NewProps) => (
+                            <CarouselItem key={article.source.id} className="md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                     <Card>
-                                        <CardContent className="flex aspect-square justify-around flex-col overflow-hidden rounded-t-lg">
+                                        <CardContent className="flex aspect-square flex-col overflow-hidden rounded-t-lg relative">
                                             <Image
                                                 src={newsImage}
                                                 alt="Imagem genérica para uma notícia de saúde."
+                                                className=""
                                             />
 
                                             <div className="px-5 pt-3 pb-6 flex flex-col gap-3">
                                                 <h1>
-                                                    {data.title}
+                                                    {article.title}
                                                 </h1>
 
                                                 <p>
-                                                    Publicado em: {moment(data.publishedAt).format('DD/MM/YYYY')}
+                                                    Publicado em: {moment(article.publishedAt).format('DD/MM/YYYY')}
                                                 </p>
-
-                                                <Link
-                                                    href={data.url}
-                                                    target="_blank"
-                                                    rel="noop"
-                                                    className="flex text-blue-700 gap-3 items-center justify-end hover:text-blue-400"
-                                                >
-                                                    <p>Ler mais</p>
-                                                    <MoveRight />
-                                                </Link>
                                             </div>
+
+                                            <Link
+                                                href={article.url}
+                                                target="_blank"
+                                                rel="noop"
+                                                className="flex text-blue-700 gap-3 items-center justify-end hover:text-blue-400 absolute bottom-5 right-5"
+                                            >
+                                                <p>Ler mais</p>
+                                                <MoveRight />
+                                            </Link>
                                         </CardContent>
                                     </Card>
                                 </div>
