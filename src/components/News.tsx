@@ -51,20 +51,20 @@ export async function News() {
                             <CarouselItem key={article.source.id} className="md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                     <Card>
-                                        <CardContent className="flex aspect-square flex-col overflow-hidden rounded-t-lg relative">
+                                        <CardContent className="flex aspect-square flex-col overflow-hidden rounded-t-lg relative w-full h-96">
                                             <Image
                                                 src={newsImage}
                                                 alt="Imagem genérica para uma notícia de saúde."
                                                 className=""
                                             />
 
-                                            <div className="px-5 pt-3 pb-6 flex flex-col gap-3">
-                                                <h1>
+                                            <div className="px-5 pt-3 pb-10 flex flex-col gap-3 h-full justify-between">
+                                                <h1 className="font-semibold">
                                                     {article.title}
                                                 </h1>
 
                                                 <p>
-                                                    Publicado em: {moment(article.publishedAt).format('DD/MM/YYYY')}
+                                                    <span className="font-semibold">Publicado em:</span> {moment(article.publishedAt).format('DD/MM/YYYY')}
                                                 </p>
                                             </div>
 
@@ -72,7 +72,7 @@ export async function News() {
                                                 href={article.url}
                                                 target="_blank"
                                                 rel="noop"
-                                                className="flex text-blue-700 gap-3 items-center justify-end hover:text-blue-400 absolute bottom-5 right-5"
+                                                className="flex text-blue-700 gap-3 items-center justify-end hover:text-blue-400 absolute bottom-2 right-3"
                                             >
                                                 <p>Ler mais</p>
                                                 <MoveRight />

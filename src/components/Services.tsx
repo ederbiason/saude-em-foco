@@ -16,19 +16,19 @@ export function Services() {
                 <Card
                     title="Procure doenças"
                     description="Pesquise por uma determinada doença para ter acesso a mais detalhes como sitomas, tratamento e precauções."
-                    icon={<Search className="scale-x-[-1] text-cyan-300" size={100} />}
+                    icon={<Search className="scale-x-[-1] text-cyan-300 hover:animate-pulse" size={100} />}
                 />
 
                 <Card
                     title="Hospitais próximos"
                     description="Abra o mapa e tenha acesso a todos os hospitais mais próximos de você para buscar atendimento médico."
-                    icon={<Hospital className="text-cyan-300" size={100} />}
+                    icon={<Hospital className="text-cyan-300 hover:animate-pulse" size={100} />}
                 />
 
                 <Card
                     title="Auto diagnóstico"
                     description="Informe os sintomas que você está sentido e veja quais são as possíveis doenças que voce pode ter."
-                    icon={<ClipboardPlus className="text-cyan-300" size={100} />}
+                    icon={<ClipboardPlus className="text-cyan-300 hover:animate-pulse" size={100} />}
                 />
             </div>
         </div>
