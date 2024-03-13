@@ -37,9 +37,9 @@ async function getNews() {
 
 export async function News() {
     const { articles } = await getNews()
-    
+
     return (
-        <section className="w-full py-10">
+        <section className="w-full pt-10 pb-20">
             <div className="mx-auto lg:max-w-6xl px-3">
                 <Carousel className="flex flex-col gap-8">
                     <h1 className="text-3xl font-bold text-center">

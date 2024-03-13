@@ -9,7 +9,7 @@ export function Services() {
             </h1>
 
             <p className="text-xl text-slate-500 text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quas quos, eum beatae reprehenderit odio a maxime at quis alias voluptatem quo neque perspiciatis totam, ad commodi exercitationem praesentium. Itaque.
+                O nosso objetivo é facilitar o acesso a informações básicas de saúde. Sendo assim, fornecemos alguns serviços que incluem desde orientações sobre diversas doenças até um Chat Bot para realizar um auto diagnóstico, além de um mapa para sinalizar de acordo com sua localização quais os pontos de atendimento médico mais próximos.
             </p>
 
             <div className="grid grid-cols-3 gap-10">

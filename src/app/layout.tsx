@@ -22,7 +22,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
       </head>
 
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} relative pb-20 min-h-dvh`}>
         <Navbar />
         {children}
         <Footer />

@@ -11,7 +11,7 @@ export function Hero() {
                 </h1>
 
                 <p className="text-xl text-slate-400">
-                    O Saúde em Foco fornece um guia virtual de cuidados de saúde de maneira simplificada para todos
+                    O Saúde em Foco fornece um guia virtual de cuidados de saúde de maneira simplificada para todos aqueles que procuram mais informações sobre determinada doença
                 </p>
 
                 <Link
