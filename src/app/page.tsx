@@ -10,8 +10,6 @@ export default function Home() {
       <Services />
 
       <News />
-
-      {/* Footer - talvez */}
     </div>
   );
 }
