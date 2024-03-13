@@ -17,7 +17,7 @@ export function Hero() {
                 <Link
                     href="https://saudefocounifil.blogspot.com/"
                     target="_blank"
-                    className="bg-blue-400 w-fit px-8 py-4 rounded-full font-semibold text-white"
+                    className="bg-blue-400 hover:bg-blue-300 w-fit px-8 py-4 rounded-full font-semibold text-white"
                 >
                     Saiba mais
                 </Link>

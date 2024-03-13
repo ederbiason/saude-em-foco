@@ -8,14 +8,14 @@ interface CardProps {
 
 export function Card({ title, description, icon }: CardProps) {
     return (
-        <div className="flex flex-col gap-5 bg-blue-400 rounded-lg p-10 items-center">
+        <div className="flex flex-col gap-5 bg-blue-400 rounded-lg p-8 items-center">
             {icon}
 
-            <div className="flex flex-col gap-5">
-                <h1 className="text-2xl font-bold text-left">
+            <div className="flex flex-col gap-5 items-center">
+                <h1 className="text-2xl font-bold">
                     {title}
                 </h1>
-                <p className="text-zinc-800">
+                <p className="text-zinc-900 text-center">
                     {description}
                 </p>
             </div>

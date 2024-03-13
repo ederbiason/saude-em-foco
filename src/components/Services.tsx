@@ -27,7 +27,7 @@ export function Services() {
 
                 <Card
                     title="Auto diagnóstico"
-                    description="Informe os sintomas que você está sentido e veja quais são as possíveis doenças que voce pode ter."
+                    description="Informe os sintomas que você está sentido e veja quais são as possíveis doenças que você pode ter."
                     icon={<ClipboardPlus className="text-cyan-300 hover:animate-pulse" size={100} />}
                 />
             </div>

@@ -9,6 +9,8 @@ import {
 import { MoveRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import newsImage from "@/assets/noticias.png"
+import axios from "axios"
 
 import moment from 'moment';
 
@@ -23,9 +25,6 @@ interface NewProps {
     content: any
 }
 
-import newsImage from "@/assets/saude.png"
-import axios from "axios"
-
 async function getNews() {
     const res = await axios.get(`https://newsapi.org/v2/top-headlines?country=br&category=health&apiKey=${process.env.NEWS_API_KEY}`)
 
@@ -38,7 +37,7 @@ async function getNews() {
 
 export async function News() {
     const { articles } = await getNews()
-    console.log(articles)
+    
     return (
         <section className="w-full py-10">
             <div className="mx-auto lg:max-w-6xl px-3">

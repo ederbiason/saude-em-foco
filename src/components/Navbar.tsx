@@ -4,10 +4,8 @@ import Link from "next/link";
 
 export function Navbar() {
   return (
-    <div className="w-full h-14 bg-slate-300 flex items-center px-40 justify-between">
+    <div className="w-full h-14 bg-blue-300 flex items-center px-40 justify-between">
         <div className="flex gap-5">
-            
-
             <Link href="/" className="text-[#233348] font-bold uppercase">
                 Saúde em Foco
             </Link>
@@ -24,10 +22,6 @@ export function Navbar() {
 
             <Link href="/hospitals" className="hover:underline hover:text-[#233348]">
                 Hospitais
-            </Link>
-
-            <Link href="/news" className="hover:underline hover:text-[#233348]">
-                Notícias
             </Link>
         </div>
     </div>

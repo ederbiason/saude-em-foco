@@ -9,7 +9,6 @@ export default function Home() {
 
       <Services />
 
-      {/* Notícias */}
       <News />
 
       {/* Footer - talvez */}
