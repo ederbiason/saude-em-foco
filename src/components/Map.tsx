@@ -7,8 +7,7 @@ import 'leaflet/dist/leaflet.css'
 import { useEffect, useState } from "react"
 import L, { LatLngTuple } from "leaflet"
 import { PlaceNode, fetchHospitals } from '@/utils/overpass'
-
-import marker from "@/assets/hospital.png"
+import Link from "next/link"
 
 interface MapProps {
     center: LatLngTuple
@@ -45,8 +44,11 @@ export function Map({ center }: MapProps) {
             }
         }
 
-        getMyLocation()
         fetchData()
+    }, [coord])
+
+    useEffect(() => {
+        getMyLocation()
     }, [])
 
     return (
@@ -67,25 +69,29 @@ export function Map({ center }: MapProps) {
                 />
 
                 {hospitals?.map((hospital) => (
-                    <Marker
-                        key={hospital.id}
-                        icon={
-                            new L.Icon({
-                                iconUrl: MarkerIcon.src,
-                                iconRetinaUrl: MarkerIcon.src,
-                                iconSize: [25, 41],
-                                iconAnchor: [12.5, 41],
+                    <Link href={`${hospital.tags.website}`} key={hospital.id}>
+                        <Marker
+                            
+                            icon={new L.Icon({
+                                iconUrl: "https://cdn3.iconfinder.com/data/icons/medical-3-1/512/hospital_place-512.png",
+                                iconRetinaUrl: "https://cdn3.iconfinder.com/data/icons/medical-3-1/512/hospital_place-512.png",
+                                iconSize: [40, 40],
+                                iconAnchor: [12.5, 40],
                                 popupAnchor: [0, -41],
-                                shadowUrl: MarkerShadow.src,
-                                shadowSize: [41, 41],
-                            })
-                        }
-                        position={[hospital.lat, hospital.lon]}
-                    >
-                        <Popup>
-                            {hospital.tags.name}
-                        </Popup>
-                    </Marker>
+                            })}
+                            position={[hospital.lat, hospital.lon]}
+                        >
+                            <Popup>
+                                <h1 className="font-bold text-xl">
+                                    {hospital.tags.name}
+                                </h1>
+
+                                <p className="text-lg">
+                                    {hospital.tags["addr:street"]} - {hospital.tags["addr:housenumber"]}
+                                </p>
+                            </Popup>
+                        </Marker>
+                    </Link>
                 ))}
 
                 <Marker icon={
