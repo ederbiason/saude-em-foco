@@ -13,7 +13,7 @@ export function Chat(props: ChatProps) {
     const { messages, input, handleInputChange, handleSubmit } = useChat({ api: "/api/chat" })
 
     return (
-        <Card className="w-full h-[600px] grid grid-rows-[min-content_1fr_min-content]">
+        <Card className="w-full h-[500px] grid grid-rows-[min-content_1fr_min-content]">
             <CardHeader>
                 <CardTitle>
                     Health Bot
@@ -78,7 +78,7 @@ export function Chat(props: ChatProps) {
                         onChange={handleInputChange}
                     />
 
-                    <Button type="submit">
+                    <Button type="submit" className="w-40">
                         Enviar
                     </Button>
                 </form>

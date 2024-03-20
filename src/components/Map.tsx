@@ -52,7 +52,7 @@ export function Map({ center }: MapProps) {
     }, [])
 
     return (
-        <div className="pb-8">
+        <div className="pb-14">
             <MapContainer
                 style={{
                     height: '100vh',
