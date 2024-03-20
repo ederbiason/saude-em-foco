@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
       </head>
 
-      <body className={`${inter.className} relative pb-20 min-h-dvh`}>
+      <body className={`${inter.className} relative pb-20 min-h-dvh bg-slate-50`}>
         <QueryProvider>
           <Navbar />
           {children}
